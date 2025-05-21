@@ -118,7 +118,9 @@ export default function ProductDetail({ product }: { product: ProductTypes }) {
                     }`}
                   onClick={() => setSelectedImage(image)}
                 >
-                  <img
+                  <Image
+                    width={1000}
+                    height={1000}
                     src={image}
                     alt={`${product.name} - Image ${index + 1}`}
                     className="w-full h-full object-cover"
@@ -381,7 +383,7 @@ export default function ProductDetail({ product }: { product: ProductTypes }) {
                       <p className="text-xs text-muted-foreground mb-2">Verified Purchase - May 3, 2023</p>
                       <p className="text-muted-foreground">
                         Beautiful saree with excellent quality. The blouse piece matched perfectly and the packaging was very good.
-                        I'm deducting one star only because delivery took longer than expected.
+                        I&apos;m deducting one star only because delivery took longer than expected.
                       </p>
                     </div>
 
@@ -400,7 +402,7 @@ export default function ProductDetail({ product }: { product: ProductTypes }) {
                       </div>
                       <p className="text-xs text-muted-foreground mb-2">Verified Purchase - April 18, 2023</p>
                       <p className="text-muted-foreground">
-                        Purchased this for my wife's birthday and she absolutely loves it. The quality is exceptional and the
+                        Purchased this for my wife&apos;s birthday and she absolutely loves it. The quality is exceptional and the
                         craftsmanship is evident in every detail. Worth every penny!
                       </p>
                     </div>
@@ -426,7 +428,9 @@ export default function ProductDetail({ product }: { product: ProductTypes }) {
                 <div key={relatedProduct.id} className="group">
                   <Link href={`/products/${relatedProduct.id}`}>
                     <div className="relative overflow-hidden rounded-lg mb-4 aspect-[3/4]">
-                      <img
+                      <Image
+                        width={1000}
+                        height={1000}
                         src={relatedProduct.images[0]}
                         alt={relatedProduct.name}
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"

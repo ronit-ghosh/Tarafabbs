@@ -63,7 +63,7 @@ export default function ContactUsPage() {
             <div>
               <h2 className="text-2xl font-medium mb-6">Get in Touch</h2>
               <p className="text-muted-foreground mb-8">
-                Have questions about our products or services? We're here to help! Reach out to us 
+                Have questions about our products or services? We&apos;re here to help! Reach out to us 
                 through any of the following channels.
               </p>
               
