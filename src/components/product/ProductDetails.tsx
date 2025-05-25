@@ -29,7 +29,7 @@ export default function ProductDetail({ product }: { product: ProductTypes }) {
         <div className="text-center">
           <h1 className="text-2xl font-medium mb-4">Product not found</h1>
           <Button asChild>
-            <Link href="/collections">Browse Collections</Link>
+            <Link href="/products">Browse Collections</Link>
           </Button>
         </div>
       </div>

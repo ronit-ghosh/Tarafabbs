@@ -9,13 +9,14 @@ import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { cn } from '@/lib/utils';
 import CartDrawer from '@/components/shop/cart-drawer';
 import { navLinks } from '@/lib/data';
+import { sooner } from '@/lib/font';
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isCartOpen, setIsCartOpen] = useState(false);
   const pathname = usePathname();
-  
+
   const isHomePage = pathname === '/';
 
   useEffect(() => {
@@ -35,7 +36,7 @@ export default function Header() {
     <header
       className={cn(
         'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
-        isHomePage && !isScrolled 
+        isHomePage && !isScrolled
           ? 'bg-transparent text-white'
           : 'bg-background/80 backdrop-blur-md text-foreground shadow-sm'
       )}
@@ -53,7 +54,9 @@ export default function Header() {
             <SheetContent side="left" className="w-full sm:max-w-sm">
               <nav className="flex flex-col h-full">
                 <div className="flex items-center justify-between mb-8 pt-4">
-                  <div className="font-serif text-2xl">TARAFABBS</div>
+                  <div className="font-serif text-2xl">
+                    <span className={`${sooner.className}`}>TA<span className='text-[#820404]'>RA</span>FABBS</span>
+                  </div>
                   <Button variant="ghost" size="icon" onClick={() => setIsOpen(false)}>
                     <X className="h-6 w-6" />
                     <span className="sr-only">Close menu</span>
@@ -84,12 +87,12 @@ export default function Header() {
               </nav>
             </SheetContent>
           </Sheet>
-          
+
           {/* Logo */}
           <Link href="/" className="font-serif text-2xl">
-            <span className="font-normal">TARA</span>FABBS
+            <span className={`${sooner.className}`}>TA<span className='text-[#820404]'>RA</span>FABBS</span>
           </Link>
-          
+
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
             {navLinks.map((item) => (
@@ -98,8 +101,8 @@ export default function Header() {
                 href={item.href}
                 className={cn(
                   "text-sm font-medium transition-colors hover:text-primary",
-                  pathname === item.href 
-                    ? "text-primary" 
+                  pathname === item.href
+                    ? "text-primary"
                     : isHomePage && !isScrolled ? "text-white" : "text-muted-foreground"
                 )}
               >
@@ -107,24 +110,27 @@ export default function Header() {
               </Link>
             ))}
           </nav>
-          
+
           {/* Right Icons */}
           <div className="flex items-center space-x-4">
-            <Button variant="ghost" size="icon" className="hidden md:flex">
+            <Button variant="ghost" size="icon" className="hidden md:flex hover:bg-transparent">
               <Search className={cn("h-5 w-5", isHomePage && !isScrolled ? "text-white" : "")} />
               <span className="sr-only">Search</span>
             </Button>
-            <Link href="/account">
-              <Button variant="ghost" size="icon">
+            <Link href='/signin'>
+              <Button
+                variant="ghost"
+                size="icon"
+                className='hover:bg-transparent'>
                 <User className={cn("h-5 w-5", isHomePage && !isScrolled ? "text-white" : "")} />
-                <span className="sr-only">Account</span>
+                <span className="sr-only">Auth</span>
               </Button>
             </Link>
-            <Button 
-              variant="ghost" 
-              size="icon" 
+            <Button
+              variant="ghost"
+              size="icon"
               onClick={() => setIsCartOpen(true)}
-              className="relative"
+              className="relative hover:bg-transparent"
             >
               <ShoppingBag className={cn("h-5 w-5", isHomePage && !isScrolled ? "text-white" : "")} />
               <span className="absolute top-0 right-0 bg-primary text-primary-foreground text-xs w-4 h-4 rounded-full flex items-center justify-center">
@@ -135,7 +141,7 @@ export default function Header() {
           </div>
         </div>
       </div>
-      
+
       <CartDrawer open={isCartOpen} onOpenChange={setIsCartOpen} />
     </header>
   );

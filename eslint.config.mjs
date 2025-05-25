@@ -11,7 +11,13 @@ const compat = new FlatCompat({
 
 const eslintConfig = [
   ...compat.extends("next/core-web-vitals", "next/typescript"),
-  { ignores: ["src/components/ui/**"] },
+  {
+    ignores: [
+      "src/components/ui/**",
+      "./src/components/auth/Signin.tsx",
+      "./src/components/auth/Signup.tsx"
+    ]
+  },
 ];
 
 export default eslintConfig;

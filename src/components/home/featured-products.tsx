@@ -111,7 +111,7 @@ export default function FeaturedProducts() {
 
       <div className="text-center mt-10">
         <Button asChild className="rounded-full px-8">
-          <Link href="/collections">View All Products</Link>
+          <Link href="/products">View All Products</Link>
         </Button>
       </div>
     </div>
